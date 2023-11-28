@@ -6,6 +6,6 @@ for i in range(0, 10):
         if j % 10 <= i:
             continue
         if j != 89:
-            print("{:02d}".format(j), end = ", ")
+            print("{:02d}".format(j), end=", ")
         else:
             print("{:02d}".format(j))
