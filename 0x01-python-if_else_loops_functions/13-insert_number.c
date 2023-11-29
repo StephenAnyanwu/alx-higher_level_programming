@@ -88,7 +88,7 @@ listint_t *insert_node(listint_t **head, int number)
 		add_node_beginning(head, new);
 	ptr1 = *head;
 	ptr2 = (*head)->next;
-	while (ptr2 != NULL)
+	while (ptr2->next != NULL)
 	{
 		if (ptr2->n > new->n || ptr2->n > new->n)
 		{
