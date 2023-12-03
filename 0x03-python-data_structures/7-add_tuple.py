@@ -28,4 +28,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
         tup_b = (0, 0)
     elif len(tup_b) == 1:
         tup_b = (tup_b[0], 0)
-    return (sum(tup_a[0], tup_b[0]), sum(tub_a[1], tup_b[1]))
+    return (tup_a[0] + tup_b[0], tup_a[1] + tup_b[1])
