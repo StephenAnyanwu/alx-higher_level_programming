@@ -6,7 +6,7 @@ def multiple_returns(sentence):
     of a string and its first character
 
     Parameter
-    --------
+    ---------
     sentence : str
         string to return its first character
     Returns
@@ -14,6 +14,6 @@ def multiple_returns(sentence):
     tuple
         length of a string and its first character
     """
-    if len(sentence) != 0:
-        return (len(sentence), sentence[0]))
-    return (0, None)
+    if len(sentence) == 0:
+        return (0, None)
+    return (len(sentence), sentence[0])
