@@ -18,8 +18,14 @@ def max_integer(my_list=[]):
 
     if len(my_list) == 0:
         return (None)
-    max_int = 0
+    if len(my_list) == 1:
+        return (my_list)
+    min_int = 0
     for i in my_list:
-        if i > max_int:
-            max_int = i
+        if i < min_int:
+            min_int = i
+    max_int = min_int
+    for j in my_list:
+        if j > max_int:
+            max_int = j
     return (max_int)
