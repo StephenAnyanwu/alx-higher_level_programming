@@ -21,6 +21,6 @@ def search_replace(my_list, search, replace):
     """
 
     search_idx = my_list.index(search)
-    new_list = my_list
+    new_list = my_list.copy()
     new_list[search_idx] = replace
     return (new_list)
