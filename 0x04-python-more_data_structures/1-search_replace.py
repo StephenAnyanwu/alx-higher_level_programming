@@ -20,7 +20,7 @@ def search_replace(my_list, search, replace):
         a new list
     """
 
-    serach_idx = my_list.index(search)
+    search_idx = my_list.index(search)
     new_list = my_list
     new_list[search_idx] = replace
     return (new_list)
