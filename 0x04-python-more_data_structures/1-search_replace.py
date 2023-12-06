@@ -22,5 +22,5 @@ def search_replace(my_list, search, replace):
 
     search_idx = my_list.index(search)
     new_list = my_list.copy()
-    new_list[search_idx] = replace
+    new_list = list(map(lambda x: replace if x == search else x, my_list))
     return (new_list)
