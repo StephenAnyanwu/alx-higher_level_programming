@@ -12,5 +12,11 @@ def update_dictionary(a_dictionary, key, value):
         dictionary key to replace or add
     value : str or int
         value to be added
+
+    Return
+    ------
+    dict
+        a new dictionary
     """
-    a_dictionary.update({key: value})
+    a_dictionary[key] = value
+    return (a_dictionary)
