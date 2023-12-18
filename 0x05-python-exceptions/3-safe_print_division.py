@@ -14,10 +14,12 @@ def safe_print_division(a, b):
     int
         the value of the division, otherwise None
     """
+
     result = 0
     try:
         result = a / b
     except Exception:
         result = None
-    print("Inside result: {}".format(result))
+    finally:
+        print("Inside result: {}".format(result))
     return (result)
