@@ -2,14 +2,17 @@
 
 """Classes and Objects
 This module demostrates how a private instance attribute is defined,
-and how we can use a method to access the private instance
-attribute and perform operations with it.
-Note that private instance attribute can not be accessed by an instance/
-object and outside the scope of the class it was defined.
+and how we can use a methods (and getter) to access the private instance
+attribute and perform operations with it. It also demostrates how we can
+a special method called setter to modify private instance attribute
+Note that private instance attribute can not be accessed nor modify by an
+instance/object and outside the scope of the class it was defined. We can
+only achieve this using a setter. This is refered as Encapsulation in OOP.
+
 Exception is raise when the attribute does not meet some defined
 requirements.
 This module contain the following class:
-    * Square - defines a square (based on 2-square.py). A class used
+    * Square - defines a square (based on 3-square.py). A class used
     for the demostration.
 """
 
@@ -29,6 +32,10 @@ class Square:
     ------
     area()
         returns the current square area.
+    size()
+        retrieves the private instance attribute (a getter)
+    size(value)
+        modifies or set the private instance attribute (a setter)
     """
 
     def __init__(self, size=0):
@@ -56,4 +63,23 @@ class Square:
 
     def area(self):
         """ returns the current square area """
-        return self.__size ** 2
+        return self.__size * self.__size
+
+    @property
+    def size(self):
+        """
+        retrieves the private instance attribute size (a getter)
+        """
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        """
+        modifies or set the private instance attribute size (a setter)
+
+        Paramters
+        ---------
+        value : int
+            new value assigned to private instance attribute size.
+        """
+        self.__size = value

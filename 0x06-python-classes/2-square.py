@@ -2,7 +2,7 @@
 
 """Classes and Objects
 This module demostrates how a private instance attribute is defined.
-Exception is raise when the attributes does not meet some defined
+Exception is raise when the attribute does not meet some defined
 requirements.
 This module contain the following class:
     * Square - defines a square (based on 1-square.py). A class used
@@ -15,7 +15,7 @@ class Square:
     """
     A class that defines a square.
 
-    Attribute
+    Attributes
     ---------
     size : int, optional
         size of the square. It's a private instance
@@ -24,7 +24,7 @@ class Square:
 
     def __init__(self, size=0):
         """
-        Parameter
+        Parameters
         ---------
         size : int
             size of the square. It's a private instance
