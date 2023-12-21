@@ -89,7 +89,7 @@ class Square:
 
         Raises
         ------
-            if value is not an integer
+            if value is not an integer.
         """
 
         if not isinstance(value, int):
