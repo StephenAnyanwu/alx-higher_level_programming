@@ -17,9 +17,6 @@ This module contain the following class:
 """
 
 
-import sys
-
-
 class Square:
 
     """
@@ -107,4 +104,4 @@ class Square:
             print("")
         else:
             for i in range(self.size):
-                sys.stdout.write("#" * self.__size + "\n")
+                print("#" * self.size)
