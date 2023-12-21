@@ -104,7 +104,7 @@ class Square:
         if self.size < 0:
             raise ValueError("size must be >= 0")
         if self.size == 0:
-            sys.stdout.write(" \n")
+            print("")
         else:
             for i in range(self.size):
                 sys.stdout.write("#" * self.__size + "\n")
