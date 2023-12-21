@@ -82,4 +82,6 @@ class Square:
         value : int
             new value assigned to private instance attribute size.
         """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
         self.__size = value
