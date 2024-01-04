@@ -12,7 +12,7 @@ only achieve this using a setter. This is refered as Encapsulation in OOP.
 Exception is raise when the attribute does not meet some defined
 requirements.
 This module contain the following class:
-    * Rectangle - defines a rectangle (based on 0-rectangle.py). A class used
+    * Rectangle - defines a rectangle (based on 1-rectangle.py). A class used
     for the demostration.
 """
 
@@ -128,4 +128,6 @@ class Rectangle:
         """
         returns the rectangle perimeter
         """
+        if (self.__width == 0 or self.__height == 0):
+            return 0
         return 2 * (self.__width + self.__height)
