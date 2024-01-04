@@ -62,7 +62,7 @@ class Square:
         ------
         TypeError
             If size is not an integer.
-            If poistion is not a tuple of two intger.
+            If position is not a tuple of two integer.
         ValueError
             If size is less than zero.
 
@@ -109,15 +109,16 @@ class Square:
     def my_print(self):
         """
         prints in stdout the square with the character #
+        while following the position tuple (ie horizontal
+        and vertical spaces)
         """
-        if self.size == 0:
+        if self.__size == 0:
             print("")
-        else:
-            for i in range(self.size):
-                if self.position[0] == 0:
-                    print("#" * self.size)
-                else:
-                    print(" " * self.position[0], "#" * self.size)
+            return
+            [print("") for i in range(self.__position[1])]
+            for i in range(self.__size):
+                [print(" ", end="") for j in range(self.__position[0])]
+                print("#" * self.__size)
 
     @property
     def position(self):
@@ -140,13 +141,27 @@ class Square:
         Raises
         ------
         TypeError
-            if position not a tuple of two posotion integers.
+            if position not a tuple of two positive integers.
         """
 
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        for i in value:
-            if not isinstance(i, int) or i < 0:
-                raise TypeError("position must be a tuple of 2\
-                        positive integers")
+        if not isinstance(value, tuple) or len(value) != 2 or\
+                not all(isinstance(num, int) for num in value) or\
+                not all(num >= 0 for num in value):
+            raise TypeError("position must be a tuple of\
+                    2 positive integers")
         self.__position = value
+
+my_square_1 = Square(3)
+my_square_1.my_print()
+
+print("--")
+
+my_square_2 = Square(3, (1, 1))
+my_square_2.my_print()
+
+print("--")
+
+my_square_3 = Square(3, (3, 0))
+my_square_3.my_print()
+
+print("--")
