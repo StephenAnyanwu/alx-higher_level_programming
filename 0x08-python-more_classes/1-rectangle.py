@@ -40,10 +40,6 @@ class Rectangle:
         retrieves a private instance attribute height (a getter)
     height(value)
         modifies or set the private instance attribute height (a setter)
-    area()
-        returns the rectangle area
-    perimeter()
-        returns the rectangle perimeter
     """
 
     def __init__(self, width=0, height=0):
@@ -70,13 +66,13 @@ class Rectangle:
 
         self.__width = width
         self.__height = height
-        if not isinstance(self.__width, int):
+        if not isinstance(width, int):
             raise TypeError("width must be an integer")
-        if self.__width < 0:
+        if width < 0:
             raise ValueError("width must be >= 0")
-        if not isinstance(self.__height, int):
+        if not isinstance(height, int):
             raise TypeError("height must be an integer")
-        if self.__height < 0:
+        if height < 0:
             raise ValueError("height must be >= 0")
 
     @property
@@ -116,7 +112,7 @@ class Rectangle:
         """
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         """
         modifies or set the private instance attribute height (a setter)
@@ -138,15 +134,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-    def area(self):
-        """
-        returns the rectangle area
-        """
-        return self.__width * self.__height
-
-    def perimeter(self):
-        """
-        returns the rectangle perimeter
-        """
-        return 2 * (self.__width + self.__height)
