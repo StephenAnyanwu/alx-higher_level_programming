@@ -20,7 +20,7 @@ during each new instance instantiation and during each instance deletion
 repectively.
 
 This module contain the following class:
-    * Rectangle - defines a rectangle (based on 5-rectangle.py). A class used
+    * Rectangle - defines a rectangle (based on 6-rectangle.py). A class used
     for the demostration.
 """
 

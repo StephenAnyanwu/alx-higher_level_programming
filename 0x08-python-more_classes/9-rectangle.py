@@ -18,10 +18,10 @@ to delete the instance of a class.
 It also demonstrate how a public class attribute is incremented and decremented
 during each new instance instantiation and during each instance deletion
 repectively.
-It also demontrate how to utilize a staticmethod.
+It also demonstrates how to utilize staticmethod and classmethod.
 
 This module contain the following class:
-    * Rectangle - defines a rectangle (based on 7-rectangle.py). A class used
+    * Rectangle - defines a rectangle (based on 8-rectangle.py). A class used
     for the demostration.
 """
 
@@ -62,6 +62,9 @@ class Rectangle:
         returns the rectangle perimeter
     bigger_or_equal(rect_1, rect_2)
         a staticmethod that returns the biggest rectangle based on the area
+    square(size=0)
+        a classmethod that returns a new Rectangle instance with
+        width == height == size
     """
     number_of_instances = 0
     print_symbol = '#'
@@ -214,6 +217,13 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """
+        returns a new Rectangle instance with width == height == size
+        """
+        return cls(size, size)
 
     def __repr__(self):
         """
