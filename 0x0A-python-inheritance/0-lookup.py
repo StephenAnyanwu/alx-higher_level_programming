@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     class MyClass2(object):
         my_attr1 = 3
-        
+
         def my_meth(self):
             pass
 
