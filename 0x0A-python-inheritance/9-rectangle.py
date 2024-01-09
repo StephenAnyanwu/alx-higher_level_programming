@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
 """
-In this module defines a class:
+In this module defines classes:
     BaseGeometry
     Rectangle
+In this module, single inheritance is demonstrated.
 """
 
 
@@ -76,7 +77,6 @@ class Rectangle(BaseGeometry):
         """returns string repreaentation of Rectangle class"""
         return f"[Rectangle] {self.__width}/{self.__height}"
 
-        
 
 if __name__ == "__main__":
     r = Rectangle(3, 5)
