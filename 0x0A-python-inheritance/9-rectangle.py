@@ -48,6 +48,11 @@ class Rectangle(BaseGeometry):
     """
     A class that represent a rectangleusing inherited class
     BaseGeometry
+
+    Methods
+    -------
+    area()
+        calculates the area of the rectangle
     """
     def __init__(self, width, height):
         """
@@ -63,19 +68,18 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__height = height
 
+    def area(self):
+        """calculates and returns the area of rectangle"""
+        return self.__width * self.__height
+
+    def __str__(self):
+        """returns string repreaentation of Rectangle class"""
+        return f"[Rectangle] {self.__width}/{self.__height}"
+
+        
 
 if __name__ == "__main__":
     r = Rectangle(3, 5)
 
     print(r)
-    print(dir(r))
-
-    try:
-        print("Rectangle: {} - {}".format(r.width, r.height))
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r2 = Rectangle(4, True)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    print(r.area())

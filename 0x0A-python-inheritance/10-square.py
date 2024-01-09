@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
 """
-In this module defines a class:
+In this module defines classes:
     BaseGeometry
     Rectangle
+    Square
+In this module, a multilevel inheritance is demonstrated
 """
 
 
@@ -46,8 +48,13 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
     """
-    A class that represent a rectangleusing inherited class
-    BaseGeometry
+    A class that represent a rectangle using inherited class
+    'BaseGeometry'
+
+    Methods
+    -------
+    area()
+        calculates the area of the rectangle
     """
     def __init__(self, width, height):
         """
@@ -63,19 +70,34 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__height = height
 
+    def area(self):
+        """calculates and returns the area of rectangle"""
+        return self.__width * self.__height
+
+    def __str__(self):
+        """returns string repreaentation of Rectangle class"""
+        return f"[Rectangle] {self.__width}/{self.__height}"
+
+
+class Square(Rectangle):
+    """
+    A class the represent a square using inherited class
+    Rectangle.
+    """
+    def __init__(self, size):
+        """
+        Parameters
+        ----------
+        size : int
+            size width of the square
+        """
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
+
 
 if __name__ == "__main__":
-    r = Rectangle(3, 5)
+    s = Square(13)
 
-    print(r)
-    print(dir(r))
-
-    try:
-        print("Rectangle: {} - {}".format(r.width, r.height))
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r2 = Rectangle(4, True)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
+    print(s)
+    print(s.area())
