@@ -16,7 +16,7 @@ def write_file(filename="", text=""):
         file to write to (default: empty string)
     text : str, optional
         string to write into filename (default: empty string)
-    
+
     Returns
     -------
     int
@@ -25,9 +25,3 @@ def write_file(filename="", text=""):
     with open(filename, 'w', encoding='utf-8') as f:
         num_char = f.write(text)
         return num_char
-
-
-if __name__ == "__main__":
-    nb_characters = write_file("my_first_file.txt", \
-            "This School is so cool!\n")
-    print(nb_characters)
