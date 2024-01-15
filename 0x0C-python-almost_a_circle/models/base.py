@@ -129,29 +129,29 @@ class Base:
         """
         if dictionary and dictionary != {}:
             #  has to be Rectangle or Square
-            inst_name = cls.__name__
-            if inst_name == "Rectangle":
+            instance_name = cls.__name__
+            if instance_name == "Rectangle":
                 # create a dummy Rectangle instance assigned with
                 # its mandatory attributes i.e 'width' and 'height'
                 # (dummy attributes).
-                new_inst = cls(3, 8)
+                new_instance = cls(3, 8)
             else:
                 # create a dummy Square instance assigned with
                 # its mandatory attributes i.e 'size'
                 # (dummy attributes).
-                new_inst = cls(2)
-            new_inst.update(**dictionary)
-            return new_inst
+                new_instance = cls(2)
+            new_instance.update(**dictionary)
+            return new_instance
 
-        @classmethod
+    @classmethod
     def load_from_file(cls):
         """Return a list of classes instantiated from a file of JSON strings.
-
         Reads from `<cls.__name__>.json`.
 
-        Returns:
-            If the file does not exist - an empty list.
-            Otherwise - a list of instantiated classes.
+        Returns
+        -------
+        If the file does not exist - an empty list.
+        Otherwise - a list of instantiated classes.
         """
         filename = str(cls.__name__) + ".json"
         try:
