@@ -21,13 +21,13 @@ class Base:
     Methods
     -------
     to_json_string(list_dictionaries)
-        Return a python list to JSON string representation
+        Convert a python list to JSON string representation
         (static method).
     save_to_file(cls, list_objs)
         Write the JSON string representation of
         list_objs to a file (class method).
     from_json_string(json_string):
-        Return a list of JSON string representation
+        Convert a list of JSON string representation
         to python list (static method).
     create(cls, **dictionary):
         Return a dictionary of attributes of an instantiated
@@ -82,7 +82,7 @@ class Base:
         """
         if list_objs is None or len(list_objs) == 0:
             with open(cls.__name__ + '.json', 'w') as jf:
-                write("[]", jf)
+                jf.write("[]")
         else:
             rect_list_dict = [obj.to_dictionary() for obj in list_objs
                         if obj.__class__.__name__ == "Rectangle"]
