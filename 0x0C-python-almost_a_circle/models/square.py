@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 In this module defines a class Square that impliments
 a square and inherits Rectangle class.

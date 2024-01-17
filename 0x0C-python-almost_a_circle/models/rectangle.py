@@ -1,9 +1,9 @@
+#!/usr/bin/python3
+
 """
 In this module defines a class Rectangle that impliments
 a rectangle and that inherits from Base class.
 """
-
-
 from models.base import Base
 
 
