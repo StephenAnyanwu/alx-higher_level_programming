@@ -42,12 +42,11 @@ class Base:
         id : int, optional
             identity of Base object (default: None)
         """
-        self.id = id
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         else:
-            self.id
+            self.id = id
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -77,27 +76,17 @@ class Base:
         Parameters
         ----------
         list_objs : list
-            a list of instances who inherits of Base
+            a list of instances that inherit of Base
            example: list of Rectangle or list of Square instances
         """
+        file_name = cls.__name__ + ".json"
         if list_objs is None or len(list_objs) == 0:
-            with open(cls.__name__ + '.json', 'w') as jf:
+            with open(file_name, 'w') as jf:
                 jf.write("[]")
         else:
-            rect_list_dict = [
-                                obj.to_dictionary() for obj in list_objs
-                                if obj.__class__.__name__ == "Rectangle"
-                            ]
-            sqr_list_dict = [
-                                obj.to_dictionary() for obj in list_objs
-                                if obj.__class__.__name__ == "Square"
-                            ]
-            if len(rect_list_dict):
-                with open('Rectangle.json', 'w') as jf:
-                    jf.write(Base.to_json_string(rect_list_dict))
-            if len(sqr_list_dict):
-                with open('Square.json', 'w') as jf:
-                    jf.write(Base.to_json_string(sqr_list_dict))
+            list_dict = [obj.to_dictionary() for obj in list_objs]
+            with open(file_name, 'w') as jf:    
+                jf.write(cls.to_json_string(list_dict))
 
     @staticmethod
     def from_json_string(json_string):
