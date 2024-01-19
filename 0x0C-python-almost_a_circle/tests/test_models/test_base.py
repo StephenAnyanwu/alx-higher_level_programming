@@ -62,6 +62,13 @@ class TestBase_to_json_string_method(unittest.TestCase):
     """
     Unittest for testing the to_json_string method of Base class
     """
+    def test_base_private_attr(self):
+        """
+        Test of the Base class private attribute
+        """
+        with self.assertRaises(AttributeError):
+            print(Base.__nb_objects)
+
     def test_to_json_string_no_arg(self):
         """
         Test of to_json_string method with no argument
