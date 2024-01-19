@@ -182,7 +182,7 @@ class Rectangle(Base):
 
     def display(self):
         """print in the stdout the Rectangle instance with
-        character #
+        character '#'
         """
         if self.width == 0 or self.height == 0:
             print("")

@@ -85,7 +85,7 @@ class Base:
                 jf.write("[]")
         else:
             list_dict = [obj.to_dictionary() for obj in list_objs]
-            with open(file_name, 'w') as jf:    
+            with open(file_name, 'w') as jf:
                 jf.write(cls.to_json_string(list_dict))
 
     @staticmethod
