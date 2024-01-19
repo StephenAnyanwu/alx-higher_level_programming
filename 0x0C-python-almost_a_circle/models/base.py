@@ -177,8 +177,8 @@ class Base:
             a list of instances that inherit of Base example:
             list of Rectangle or list of Square instances
         """
-        filename = cls.__name__ + ".csv"
-        with open(filename, "w", newline="") as csvfile:
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, "w", newline="") as csvfile:
             if list_objs is None or list_objs == []:
                 csvfile.write("[]")
             else:
@@ -202,7 +202,7 @@ class Base:
         """
         file_name = cls.__name__ + ".csv"
         try:
-            with open(filename, "r", newline="") as csvfile:
+            with open(file_name, "r", newline="") as csvfile:
                 if cls.__name__ == "Rectangle":
                     field_names = ["id", "width", "height", "x", "y"]
                 else:
@@ -213,4 +213,3 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError as e:
             return []
-
