@@ -5,6 +5,8 @@ In this model defines a class Base
 """
 
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -32,6 +34,9 @@ class Base:
     create(cls, **dictionary):
         Return a dictionary of attributes of an instantiated
         class.
+    load_from_file()
+        Return a list of classes instantiated from a file of
+        JSON strings (class method).
     """
     __nb_objects = 0
 
@@ -135,3 +140,121 @@ class Base:
                 new_instance = cls(2)
             new_instance.update(**dictionary)
             return new_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of classes instantiated from a file of
+        JSON strings.
+        The filename must be: <Class name>.json -
+        example: Rectangle.json
+
+
+        Returns
+        -------
+        list
+            An empty list if the file does not exist, otherwise
+            a list of instantiated classes.
+        """
+        file_name = cls.__name__ + ".json"
+        try:
+            with open(file_name, "r") as jf:
+                json_string = jf.read()
+                list_dicts = Base.from_json_string(json_string)
+                return [cls.create(**d) for d in list_dicts]
+        except IOError as e:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Write the CSV serialization of a list of objects to a file.
+        The filename must be: <Class name>.csv -
+        example: Rectangle.csv
+
+        Parameters
+        ----------
+        list_objs : list
+            a list of instances that inherit of Base example:
+            list of Rectangle or list of Square instances
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    field_names = ["id", "width", "height", "x", "y"]
+                else:
+                    field_names = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=field_names)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file.
+        The filename must be: <Class name>.csv -
+        example: Rectangle.csv
+
+        Returns:
+            An empty list if file does not exist,
+            otherwise a list of instantiated classes.
+        """
+        file_name = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    field_names = ["id", "width", "height", "x", "y"]
+                else:
+                    field_names = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=field_names)
+                list_dicts = [dict([key, int(val)] for key, val in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError as e:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the turtle module.
+
+        Parameters
+        ----------
+        list_rectangles : list
+            A list of Rectangle objects to draw.
+            list_squares : list
+                A list of Square objects to draw.
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#b7312c")
+        turt.pensize(3)
+        turt.shape("turtle")
+
+        turt.color("#ffffff")
+        for rect in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rect.x, rect.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(rect.width)
+                turt.left(90)
+                turt.forward(rect.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turt.color("#b5e3d8")
+        for sq in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(sq.x, sq.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(sq.width)
+                turt.left(90)
+                turt.forward(sq.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turtle.exitonclick()
