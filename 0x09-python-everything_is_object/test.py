@@ -115,8 +115,7 @@ def copy_list(l):
     list
         A copy of list l
     """
-    new_list = l[:]
-    return new_list
+    return l[:]
 
 my_list = [1, 2, 3]
 print(my_list)
