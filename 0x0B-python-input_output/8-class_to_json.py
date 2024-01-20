@@ -56,8 +56,10 @@ if __name__ == "__main__":
             self.score -= 1
 
         def __str__(self):
-            return "[MyClass] {} - {:d} => {:d}".format(self.__name,
-                    self.number, self.score)
+            name = self.__name
+            num = self.number
+            score = self.score
+            return "[MyClass] {} - {:d} => {:d}".format(name, num, score)
 
     m = MyClass("John")
     m.win()
