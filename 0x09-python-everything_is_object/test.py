@@ -162,7 +162,6 @@ print(a is b) # True
 #25
 a = (1, 2)
 b = (1, 2)
-print("------------")
 print(a is b) # True
 
 
