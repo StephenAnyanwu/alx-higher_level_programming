@@ -72,14 +72,9 @@ class Student:
             key/value pairs to replace attributes with
             >key will be the public attribute name
             >value will be the value of the public attribute
-
-        Returns
-        -------
-        dict
-            new attributes of Student instance
         """
-        self.__dict__ = json
-        return self.__dict__
+        for k, v in json.items():
+            setattr(self, k, v)
 
 
 if __name__ == "__main__":
