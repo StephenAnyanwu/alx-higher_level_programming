@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
-let myVar = “JavaScript is amazing”;
-
+/* A script that prints "JavaScript is amazing" */
+let myVar = 'JavaScript is amazing';
 console.log(myVar);
