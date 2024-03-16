@@ -10,9 +10,11 @@ class Rectangle {
 	}
 
 	print () {
-		const w = this.width * 'X';
-		for (let i = 0; i < this.height; i++)
-			console.log(w);
+		let x = '';
+		for (let i = 0; i < this.width; i++)
+			x += 'X';
+		for (let j = 0; j < this.height; j++)
+			console.log(x);
 }
 
 module.exports = Rectangle;
