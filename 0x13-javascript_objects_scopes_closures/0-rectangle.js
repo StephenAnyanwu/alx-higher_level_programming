@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
+/* Empty calss that defines a rectangle */
 class Rectangle {
-	/* Empty calss that defines a rectangle */
 }
 
 module.exports = Rectangle;
