@@ -9,4 +9,4 @@ exports.esrever = function (list) {
     list[i] = tmp;
     lastIdx--;
   }
-}
+};
