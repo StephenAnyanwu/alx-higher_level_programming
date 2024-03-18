@@ -11,7 +11,7 @@ const newDict = {};
 for (const i in uniqVals) {
   const list = [];
   for (const j in totaList) {
-    if (totaList[j][1] === uniqVals[j]) {
+    if (totaList[j][1] === uniqVals[i]) {
       list.unshift(totaList[j][0]);
     }
   }
