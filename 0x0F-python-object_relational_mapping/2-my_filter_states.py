@@ -1,4 +1,3 @@
-2-my_filter_states.py
 #!/usr/bin/python3
 """
 Takes an argument and displays all values in the states table of hbtn_0e_0_usa
