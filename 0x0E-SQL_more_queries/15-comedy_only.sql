@@ -1,4 +1,3 @@
-15-comedy_only.sql
 -- lists all Comedy shows in the database hbtn_0d_tvshows
 -- lists all rows of a database corresponding to a column value
 SELECT title
